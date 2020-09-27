@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DefenderButton : MonoBehaviour
 {
+    [SerializeField] Defender defenderPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,5 +25,6 @@ public class DefenderButton : MonoBehaviour
             button.GetComponent<SpriteRenderer>().color = new Color32(80,69,69,255);
         }
         GetComponent<SpriteRenderer>().color = Color.white;
+        FindObjectOfType<DefenderSpawner>().setSelectedDefender(defenderPrefab);
     }
 }

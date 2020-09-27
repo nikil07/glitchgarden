@@ -5,12 +5,16 @@ using UnityEngine;
 public class DefenderSpawner : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] GameObject defender;
+    Defender defender;
 
     private void OnMouseDown()
     {
         print("mouse click");
         spawnDefender();
+    }
+
+    public void setSelectedDefender(Defender defenderSelected) {
+        defender = defenderSelected;
     }
 
     private Vector2 getMouseClickPos() {
@@ -22,6 +26,7 @@ public class DefenderSpawner : MonoBehaviour
     }
 
     private void spawnDefender() {
-        GameObject newDefender = Instantiate(defender, getMouseClickPos(), Quaternion.identity) as GameObject;
+        Defender newDefender = Instantiate(defender, getMouseClickPos(), Quaternion.identity) as Defender;
+        FindObjectOfType<StarDisplay>().spendStars(defender.getBuyCost());
     }
 }

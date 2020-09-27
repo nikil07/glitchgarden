@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour
 {
 
     bool isSpawn = true;
-    [SerializeField] GameObject gameObject;
+    [SerializeField] Attacker gameObject;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +32,7 @@ public class Spawner : MonoBehaviour
 
     private void spawnAttacker()
     {
-        Instantiate(gameObject, transform.position, Quaternion.identity);
+        Attacker attacker =  Instantiate(gameObject, transform.position, Quaternion.identity) as Attacker;
+        attacker.transform.parent = transform;
     }
 }
