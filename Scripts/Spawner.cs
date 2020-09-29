@@ -26,6 +26,7 @@ public class Spawner : MonoBehaviour
         while (isSpawn)
         {
             yield return new WaitForSeconds(UnityEngine.Random.Range(1f, 4f));
+            //yield return new WaitForSeconds(UnityEngine.Random.Range(7f, 6f));
             spawnAttacker();
         }
     }

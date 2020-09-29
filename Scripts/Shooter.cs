@@ -9,36 +9,43 @@ public class Shooter : MonoBehaviour
     [SerializeField] GameObject gun;
 
     private Spawner myLaneSpawner;
+    Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
+        animator = GetComponent<Animator>();
         setLaneSpawner();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isAttackerInLane()){ 
-            
-        } 
-    }
-
-    private bool attackerInLane()
-    {
-        throw new NotImplementedException();
+        if (isAttackerInLane())
+        {
+            animator.SetBool("isAttacking", true);
+        }
+        else
+        {
+            animator.SetBool("isAttacking", false);
+        }
     }
 
     public void fire() {
-        
-        Instantiate(projectile, gun.transform.position, Quaternion.identity);
+
+        if (isAttackerInLane())
+        {
+            Instantiate(projectile, gun.transform.position, Quaternion.identity);
+        }
     }
 
     private void setLaneSpawner() {
         Spawner[] spawners = FindObjectsOfType<Spawner>();
-        print(spawners);
+        
+        //print(spawners[1].transform.position.y);
+        //print(transform.position.y);
         foreach (Spawner spawner in spawners) {
-            if (Mathf.Abs(spawner.transform.position.y - transform.position.y) <= Mathf.Epsilon) {
+            if (Mathf.Abs(spawner.transform.position.y - Mathf.RoundToInt(transform.position.y)) <= Mathf.Epsilon) {
                 myLaneSpawner = spawner;
             }
 
