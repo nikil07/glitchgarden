@@ -21,7 +21,7 @@ public class LevelLoader : MonoBehaviour
     IEnumerator WaitForTime()
     {
         yield return new WaitForSeconds(4);
-        loadNextScene();
+        loadStartGame();
     }
 
     // Update is called once per frame
@@ -30,7 +30,15 @@ public class LevelLoader : MonoBehaviour
         
     }
 
+    public void loadStartGame() {
+        SceneManager.LoadScene("Start Screen");
+    }
+
     public void loadNextScene() {
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        SceneManager.LoadScene("GamePlay Screen");
+    }
+
+    public void loadGameOverScene() {
+        SceneManager.LoadScene("GameOver Screen");
     }
 }

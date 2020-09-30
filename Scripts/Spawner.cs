@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
 
     bool isSpawn = true;
-    [SerializeField] Attacker gameObject;
+    [SerializeField] Attacker[] gameObjects;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +31,7 @@ public class Spawner : MonoBehaviour
 
     private void spawnAttacker()
     {
-        Attacker attacker =  Instantiate(gameObject, transform.position, Quaternion.identity) as Attacker;
+        Attacker attacker =  Instantiate(gameObjects[Random.Range(0,gameObjects.Length)], transform.position, Quaternion.identity) as Attacker;
         attacker.transform.parent = transform;
     }
 }

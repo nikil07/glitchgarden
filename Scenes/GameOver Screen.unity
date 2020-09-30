@@ -537,7 +537,7 @@ GameObject:
   - component: {fileID: 2119042813}
   - component: {fileID: 2119042814}
   m_Layer: 5
-  m_Name: Start Game
+  m_Name: Restart Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Start Game
+  m_Text: Restart ??
 --- !u!222 &2119042812
 CanvasRenderer:
   m_ObjectHideFlags: 0

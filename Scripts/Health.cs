@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] float health = 100f;
     [SerializeField] GameObject deathVFX;
+    
 
     // Start is called before the first frame update
     void Start()
