@@ -33,5 +33,10 @@ public class Spawner : MonoBehaviour
     {
         Attacker attacker =  Instantiate(gameObjects[Random.Range(0,gameObjects.Length)], transform.position, Quaternion.identity) as Attacker;
         attacker.transform.parent = transform;
+        FindObjectOfType<LevelController>().addAttackers();
+    }
+
+    public void stopSpawning() {
+        isSpawn = false;
     }
 }

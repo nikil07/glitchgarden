@@ -41,4 +41,19 @@ public class LevelLoader : MonoBehaviour
     public void loadGameOverScene() {
         SceneManager.LoadScene("GameOver Screen");
     }
+
+    public void restartScene() {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("GamePlay Screen");
+    }
+
+    public void loadMainMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Start Screen");
+    }
+
+    public void loadOptionsScene() {
+        SceneManager.LoadScene("Options Screen");
+    }
 }

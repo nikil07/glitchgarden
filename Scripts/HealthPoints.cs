@@ -18,7 +18,7 @@ public class HealthPoints : MonoBehaviour
         setHP();
         if (healthPoints <= 0) {
             // GAME OVER
-            FindObjectOfType<LevelLoader>().loadGameOverScene();
+            FindObjectOfType<LevelController>().handleLoseCondition();
         }
     }
 

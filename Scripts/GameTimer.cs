@@ -8,6 +8,7 @@ public class GameTimer : MonoBehaviour
     [Tooltip("Level timer in SECONDS")]
     [SerializeField] float levelTime = 10;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,7 @@ public class GameTimer : MonoBehaviour
 
         if (Time.timeSinceLevelLoad >= levelTime) {
             // Level time expired
-            print("Level time exopired");
+            FindObjectOfType<LevelController>().setLevelFinished();
         }
     }
 }

@@ -24,6 +24,8 @@ public class Health : MonoBehaviour
         health -= damage;
         if (health <= 0) {
             triggerDeathVFX();
+            if (gameObject.GetComponent<Attacker>()) 
+                FindObjectOfType<LevelController>().subtractAttackers();
             Destroy(gameObject);
         }
     }
