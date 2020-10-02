@@ -11,11 +11,22 @@ public class Shooter : MonoBehaviour
     private Spawner myLaneSpawner;
     Animator animator;
 
+    GameObject projectileParent;
+
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         setLaneSpawner();
+        createProjectileParent();
+    }
+
+    private void createProjectileParent()
+    {
+        projectileParent = GameObject.Find("Projectiles");
+        if (!projectileParent) {
+            projectileParent = new GameObject("Projectiles");
+        }
     }
 
     // Update is called once per frame
@@ -35,7 +46,8 @@ public class Shooter : MonoBehaviour
 
         if (isAttackerInLane())
         {
-            Instantiate(projectile, gun.transform.position, Quaternion.identity);
+            GameObject newProjectile =  Instantiate(projectile, gun.transform.position, Quaternion.identity) as GameObject;
+            newProjectile.transform.parent = projectileParent.transform;
         }
     }
 

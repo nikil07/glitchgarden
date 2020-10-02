@@ -5,10 +5,13 @@ using UnityEngine.UI;
 public class HealthPoints : MonoBehaviour
 {
     Text hpText;
-    [SerializeField] int healthPoints = 20;
+    [SerializeField] float basePoints = 20;
+    float healthPoints;
 
     private void Start()
     {
+        healthPoints = basePoints - PlayerPrefsController.getDifficulty() * 5;
+        print(healthPoints);
         hpText = GetComponent<Text>();
         setHP();
     }
